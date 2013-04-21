@@ -1,0 +1,105 @@
+@charset "utf-8";
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+#kapsayici {
+	width: 100%;
+	text-align: center;
+}
+
+#suggest {
+	width: 200px;
+	display: none;
+	position: absolute;
+}
+
+table {
+	width: 100%;
+	font-weight: bold;
+}
+
+table tr:nth-child(even) {
+	background-color: #ddd;
+}
+table tr:nth-child(odd) {
+	background-color: #eee;
+}
+#genel td:nth-child(even) {
+	text-align: left;
+}
+#genel td:nth-child(odd) {
+	text-align: left;
+}
+#nobet {
+	text-align: left;
+}
+
+.idTabs
+{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+.idTabs li
+{
+float:left;
+}
+.idTabs a:link,a:visited
+{
+display:block;
+width:200px;
+font-weight:bold;
+color:#000;
+background-color:#eee;
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+border: 1px solid #000;
+margin: 2px;
+}
+.idTabs a:hover, .idTabs a:active
+{
+background-color:#ddd;
+}
+
+input[type="text"] {
+	width: 99%;
+	font-size: 1em;
+}
+
+select {
+	width: 98%;
+	font-size: 1em;
+}
+
+textarea {
+	width: 98%;
+	height: 80px;
+	font-size: 1em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#kaydet {
+	width: 100px;
+	height: 40px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#resim_sec {
+	font-size: 1.2em;
+	font-weight: bold;
+	
+}
+
+#nobet_degisim_saati {
+	width: 38px;
+}
+
+.sayialani {
+	width: 50px;
+}

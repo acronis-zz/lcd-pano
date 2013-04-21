@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Ayarlar</title>
+	<link rel="stylesheet" type="text/css" href="css/ayarlar.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+    <script type="text/javascript" src="js/ayarlar.js"></script>
+</head>
+<body>
+    <form id="kapsayici" action="#">
+        <ul class="idTabs"> 
+            <li><a href="#genel">GENEL AYARLAR</a></li> 
+            <li><a href="#nobet">NÖBET PROGRAMI</a></li>
+        </ul>
+        <div id="genel">
+            <table>
+                <tr>
+                    <td width="25%">Okul Adı:</td><td width="75%"><input type="text" name="okul_adi" id="okul_adi" /></td>
+                </tr>
+                <tr>
+                    <td>Kayan Yazı Metni:</td>
+                    <td><input type="text" name="duyuru" id="duyuru" /></td>
+                </tr>
+                <tr>
+                    <td>Kayan Yazı Hızı:</td>
+                    <td>
+                        <input type="number" name="scrolldelay" id="scrolldelay" min="50" max="1000" step="10" class="sayialani" /> milisaniyede bir 
+                        <input type="number" name="scrolldelay" id="scrollamount" min="5" max="100" class="sayialani" /> piksel
+                    </td>
+                </tr>
+                <tr>
+                    <td>Slayt Resim Değişim Hızı:</td>
+                    <td><input type="number" name="slayt_hizi" id="slayt_hizi" min="3" max="60" class="sayialani" /> saniyede bir</td>
+                </tr>
+                <tr>
+                    <td>Nöbetçi Personel Yazı Boyutu:</td>
+                    <td>
+                        <input type="number" id="nob_per_punto" min="8" max="100" class="sayialani" /> piksel
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hava Durumu API Anahtarı (*):</td>
+                    <td><input type="text" name="apikey" id="apikey" pattern="^[a-zA-Z0-9]+$" /></td>
+                </tr>
+                <tr>
+                    <td>Hava Durumu Bölgesi:</td>
+                    <td>
+                        <input type="text" list="suggest" name="adres" id="adres" autocomplete="off" />
+                        <datalist id="suggest"></datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>TRT Haber Kategorisi:</td>
+                    <td>
+                        <select id="haber_kategorisi">
+                            <option value="mansetler-m">Manşetler</option>
+                            <option value="gundem-1">Gündem</option>
+                            <option value="turkiye-2">Türkiye</option>
+                            <option value="dunya-4">Dünya</option>
+                            <option value="spor-5">Spor</option>
+                            <option value="saglik-6">Sağlık</option>
+                            <option value="ekonomi-7">Ekonomi</option>
+                            <option value="yasam-8">Yaşam</option>
+                            <option value="kultur-sanat-9">Kültür-Sanat</option>
+                            <option value="bilim-teknik-10">Bilim-Teknik</option>
+                            <option value="cevre-11">Çevre</option>
+                            <option value="egitim-12">Eğitim</option>
+                            <option value="magazin-19">Magazin</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" id="resim_sec">Slayt Resimlerini Seç/Değiştir</button>
+            <i>
+                <p>(En iyi performans ve görünüm için seçtiğiniz koleksiyondaki resimler 540 x 365 boyutlarında olmalıdır.)</p>
+                <p>(*) API Anahtarı, hava durumunu modülünü kullanabilmeniz için gereklidir.<br />www.wunderground.com üzerinden ücretsiz API anahtarınızı almak için <a href="http://www.wunderground.com/weather/api/" target="_blank">tıklayınız.</a>
+                </p>
+            </i>
+        </div>
+        <div id="nobet">
+            <table>
+                <tr>
+                    <td width="35%">Nöbet Kategorileri ve Öğretim Şekli:<br />
+                        <span style="font-weight: normal;"><i>Virgüllerle ayırınız, öğretim şeklinizi de seçtikten sonra Tabloyu Oluştur butonuna tıklayınız.<br />Öğretim şeklinize göre günler ikiye bölünecektir.</i></span></td>
+                        <td width="65%">
+                            <input type="text" id="nobet_kategorileri" /><br />
+                            <input type="radio" name="ogretim_turu" value="tamgn" id="ogretim_turu_0" />Normal Öğretim
+                            <input type="radio" name="ogretim_turu" value="ikili" id="ogretim_turu_1" />İkili Öğretim
+                            <span id="ikili_ogretim_alani"> | Nöbet değişim saati: 
+                                <input type="text" pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])" placeholder="SS:DD" id="nobet_degisim_saati" />
+                            </span>
+                            <button type="button" id="listeyi_olustur">Tabloyu Oluştur</button>
+                        </td>
+                    </tr>
+                </table>
+                <table id="nobet_listesi"></table>
+                <p>
+                    <i>(*) Aynı mahalde birden fazla nöbetçi öğretmen olduğu durumlarda isimlerini virgülle ayırınız.</i>
+                </p>
+            </div>
+            <br />
+            <input type="submit" value="KAYDET" id="kaydet" />
+            <br />
+            <div id="durum"></div>
+            <p><span id="version"></span> &copy; <span id="yil"></span> &copy; Tüm hakları saklıdır<br />Mustafa Burak KALKAN<br />Bilişim Teknolojileri Öğretmeni<br /><a href="mailto:mburakkalkan@gmail.com">mburakkalkan@gmail.com</a></p>
+        </form>
+    </body>
+    </html>
